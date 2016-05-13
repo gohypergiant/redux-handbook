@@ -1,14 +1,20 @@
 {
   "name": "bpxl-redux-handbook",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An opionated way to write applications with Redux",
+  "homepage": "https://github.com/brandonjpierce/redux-handbook",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brandonjpierce/redux-handbook.git"
+  },
   "scripts": {
     "prepare": "gitbook install",
     "watch": "npm run prepare && gitbook serve",
     "build": "npm run prepare && rm -rf _book && gitbook build",
     "publish": "npm run build && cd _book && git init && git commit --allow-empty -m 'Book update' && git checkout -b gh-pages && git add . && git commit -am 'Book update' && git push git@github.com:<username>/<repo> gh-pages --force"
   },
-  "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-plugin-prism": "^1.0.0"
+  }
 }

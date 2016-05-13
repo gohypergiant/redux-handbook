@@ -1,10 +1,10 @@
 # Usage with React
 
-By utilizing [react-redux](https://github.com/reactjs/react-redux) we can keep a clean separation between smart and dumb components. To keep this section from becoming a full fledge react tutorial please use the following as guidelines:
+By utilizing [react-redux](https://github.com/reactjs/react-redux) we can keep a clean separation between smart and dumb components and allow our application to grow more easily.
 
 ### Avoid coupling to the state of another module
 
-If in our `projects` and `todos` example `projects` needed to grab information from the `todos` state in order to render a component, we should elect to provide an interface from the `todos` state rather than interacting with the `todos` state directly:
+If, in our `projects` and `todos` example, `projects` needed to grab information from the `todos` state in order to render a component, you should provide an interface from the `todos` state rather than interacting with the `todos` state directly:
 
 **BAD**
 ```javascript
@@ -52,8 +52,8 @@ const ProjectTodosContainer = connect(
 )(ProjectTodos);
 ```
 
-The `GOOD` example is powerful because we can freely change the structure of the `todos` and `projects` state, without worrying about updating the `ProjectTodosContainer` component. This way, if we need to refactor our state, we simply need to update our selectors instead of updating a bunch of container components.
+The `GOOD` example is powerful because you can freely change the structure of the `todos` and `projects` state, without worrying about updating the `ProjectTodosContainer` component. This way, if you need to refactor your state, you can simply update your selectors instead of updating numerous container components.
 
 ### Utilize smart and dumb components
 
-All dumb components should be rendered as stateless functional components. A dumb component should always be accompanied with a smart container component e.g. `Todos` and `TodosContainer`. You should be utilizing `react-redux`s `connect` method as much as possible to eliminate component re-renders.
+All dumb components should be rendered as stateless functional components. A dumb component should always be accompanied with a smart container component e.g. `Todos` and `TodosContainer`. You should be utilizing `react-redux`s `connect` method as much as possible in your container components to eliminate unnecessary re-renders.
