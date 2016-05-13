@@ -11,7 +11,7 @@
     "prepare": "gitbook install",
     "watch": "npm run prepare && gitbook serve",
     "build": "npm run prepare && rm -rf _book && gitbook build",
-    "publish": "npm run build && cd _book && git init && git commit --allow-empty -m 'Book update' && git checkout -b gh-pages && git add . && git commit -am 'Book update' && git push git@github.com:<username>/<repo> gh-pages --force"
+    "publish": "npm run build && cd _book && git init && git commit --allow-empty -m 'Book update' && git checkout -b gh-pages && git add . && git commit -am 'Book update' && git push git@github.com:brandonjpierce/redux-handbook gh-pages --force"
   },
   "license": "MIT",
   "dependencies": {
