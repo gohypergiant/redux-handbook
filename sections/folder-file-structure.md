@@ -1,9 +1,3 @@
-```markdown
-Possible ideas to talk about still:
-
-- code example for store composer
-```
-
 # Folder & File Structure
 
 For all of these examples lets assume this is the current state tree:
@@ -30,7 +24,7 @@ Our previous layout example from above modified to follow new pattern:
 
 If there are any utility methods that need to be added to selectors, reducers, or actions, you now have the flexibility to put them either in a features folder (if its an isolated method) or, if the method is used in various places, in a `utils.js` file in the root of your state folder.
 
-### Nested State Tree
+## Nested state tree
 
 For nested state trees still follow the rule of matching your folders to your state. For example, if our state changed to this:
 
@@ -50,7 +44,7 @@ Your folder structure would look like this:
 
 In your parent reducers you can utilize Redux's `combineReducers` method to group your child reducers together.
 
-### Action Type Definitions
+## Action type definitions
 
 All action type definitions should live inside a `action-types.js` file in the root of your state folder. This keeps all of our actions contained and allows us to add and update new ones with relative ease.
 
@@ -66,7 +60,7 @@ export const TODO_REMOVE = 'TODO_REMOVE';
 
 You can read about conventions for actions in the [Actions & Action Creators](actions-action-creators.md) chapter.
 
-### Store Composer
+## Store composer
 
 The main store composer should live inside a `index.js` file in the root of your state folder. The store composer should _only_ do the following things:
 
@@ -74,3 +68,14 @@ The main store composer should live inside a `index.js` file in the root of your
 - Setup middleware
 - Create store instance
 - Export store instance
+
+```javascript
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+// reducer import removed for brevity
+const reducers = combineReducers(...);
+const store = createStore(reducers, applyMiddleware(thunk));
+
+export default store;
+```
