@@ -10,6 +10,8 @@ Possible ideas to talk about still:
 
 # Reducers & Immutable Data
 
+Reducers are designed to be pure functions, meaning they produce no side effects. They also do not store or mutate state. They are simply passed state and return state. This is the fundamental reason as to why they are so powerful and predictable.
+
 Be sure to read about [reducers](http://redux.js.org/docs/basics/Reducers.html) from the official Redux docs. This page is a great resource and covers a lot of conventions and best practices.
 
 ### State Shape
