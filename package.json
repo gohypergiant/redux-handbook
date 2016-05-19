@@ -13,6 +13,7 @@
     "build": "npm run prepare && rm -rf _book && gitbook build",
     "publish": "npm run build && cd _book && git init && git commit --allow-empty -m 'Book update' && git checkout -b gh-pages && git add . && git commit -am 'Book update' && git push git@github.com:blackpixel/redux-handbook gh-pages --force"
   },
+  "author": "Black Pixel",
   "license": "MIT",
   "dependencies": {
     "gitbook-plugin-prism": "^1.0.0"
