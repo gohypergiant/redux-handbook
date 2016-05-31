@@ -28,7 +28,7 @@ This will create a folder named `todos` with the following files inside of it:
 - `actions.js`
 - `selectors.js`
 
-If you notice we passed an additional `--reducers` flag, this populates our `reducer.js` with the passed in reducer values. In the example command above our `reducer.js` file would look like this:
+If you notice we passed an additional `--reducers` flag, this populates our `reducer.js` with the passed in reducer values. In the example command above our `reducer.js` file would look like the following:
 
 ```javascript
 import { combineReducers } from 'redux';
@@ -59,6 +59,8 @@ export default combineReducers({
 
 Notice that action types are automatically added with a namespace via the `<name>` value (in this case "TODO").
 
+This tool is absolutely invaluable for saving a precious time when developing an application with `redux`. It also makes it incredibly easy to follow all of the rules outlined in this handbook. If you have recommendations or ideas please feel free to [contribute](https://github.com/blackpixel/redux-cli/blob/master/CONTRIBUTING.md) to the project!
+
 ## Creating Individual State Files
 
 `redux-cli` also gives you the ability to create individual state files:
@@ -68,4 +70,4 @@ Notice that action types are automatically added with a namespace via the `<name
 - `redux-cli make:selector`
 - `redux-cli make:container`
 
-This is useful if you already have an existing state structure in place and want to slowly implement a new one. Please refer to the readme of `redux-cli` for more usage examples.
+This is useful if you already have an existing state structure in place and want to slowly implement a new one. Please refer to the readme of [redux-cli](https://github.com/blackpixel/redux-cli/) for more usage examples.
