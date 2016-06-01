@@ -57,7 +57,14 @@ export default combineReducers({
 });
 ```
 
-Notice that action types are automatically added with a namespace via the `<name>` value (in this case "TODO").
+Notice that action types are automatically added with a namespace via the `<name>` value (in this case "TODO"). Alternatively, if you would prefer to break up your child reducers even further you could run the following commands:
+
+```
+redux-cli make todos
+redux-cli make active --path=todos
+redux-cli make completed --path=todos
+redux-cli make archived --path=todos
+```
 
 This tool is absolutely invaluable for saving a precious time when developing an application with `redux`. It also makes it incredibly easy to follow all of the rules outlined in this handbook. If you have recommendations or ideas please feel free to [contribute](https://github.com/blackpixel/redux-cli/blob/master/contributing.md) to the project!
 
