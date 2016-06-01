@@ -59,7 +59,7 @@ export default combineReducers({
 
 Notice that action types are automatically added with a namespace via the `<name>` value (in this case "TODO").
 
-This tool is absolutely invaluable for saving a precious time when developing an application with `redux`. It also makes it incredibly easy to follow all of the rules outlined in this handbook. If you have recommendations or ideas please feel free to [contribute](https://github.com/blackpixel/redux-cli/blob/master/CONTRIBUTING.md) to the project!
+This tool is absolutely invaluable for saving a precious time when developing an application with `redux`. It also makes it incredibly easy to follow all of the rules outlined in this handbook. If you have recommendations or ideas please feel free to [contribute](https://github.com/blackpixel/redux-cli/blob/master/contributing.md) to the project!
 
 ## Creating Individual State Files
 
