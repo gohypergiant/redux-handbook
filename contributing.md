@@ -4,7 +4,7 @@ We welcome contributions from the community and are pleased to have them. Please
 
 ## Logging Issues
 
-All issues should be created using the [new issue form](https://github.com/blackpixel/redux-handbook/issues/new). Clearly describe the issue including steps to reproduce if there are any.
+All issues should be created using the [new issue form](https://github.com/bpxl-labs/redux-handbook/issues/new). Clearly describe the issue including steps to reproduce if there are any.
 
 ## Making changes
 
@@ -12,4 +12,4 @@ This handbook is opinionated to our style and preferences. However, we happily w
 
 - Fork the repository on GitHub
 - Add in your changes
-- [Pull requests](http://help.github.com/send-pull-requests/) should be made to the [master branch](https://github.com/blackpixel/redux-handbook/tree/master).
+- [Pull requests](http://help.github.com/send-pull-requests/) should be made to the [master branch](https://github.com/bpxl-labs/redux-handbook/tree/master).
