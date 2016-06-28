@@ -1,4 +1,4 @@
-# [BPXL Redux Handbook](http://bpxl-labs.github.io/bpxl-redux-handbook/)
+# [BPXL Redux Handbook](http://bpxl-labs.github.io/redux-handbook/)
 
 ## Introduction
 
