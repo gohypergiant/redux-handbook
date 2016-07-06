@@ -2,5 +2,10 @@
   "gitbook": "3.2.0-pre.1",
   "title": "Black Pixel Redux Handbook",
   "root": "./src",
-  "plugins": ["prism", "-highlight"]
+  "plugins": ["prism", "image-captions", "anchors", "-highlight"],
+  "pluginsConfig": {
+    "image-captions": {
+      "caption": "_CAPTION_"
+    }
+  }
 }

@@ -1,8 +1,4 @@
-# [BPXL Redux Handbook](http://bpxl-labs.github.io/redux-handbook/)
-
-## Introduction
-
-The Black Pixel way to write applications with Redux.
+# [Black Pixel Redux Handbook](http://bpxl-labs.github.io/redux-handbook/)
 
 ### Redux: What Is It?
 

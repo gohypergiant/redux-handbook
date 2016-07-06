@@ -9,8 +9,10 @@ Be sure to read about [reducers](http://redux.js.org/docs/basics/Reducers.html) 
 There are many approaches to decreasing the amount of boilerplate for reducers. [redux-actions](https://github.com/acdlite/redux-actions) solves this problem in a simplistic and clean manner:
 
 ```javascript
+import { COUNT_INCREMENT } from 'action-types';
+
 const reducer = handleActions({
-  INCREMENT: (state, { payload }) => payload,
+  [COUNT_INCREMENT]: (state, { payload }) => payload,
 });
 ```
 
