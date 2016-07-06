@@ -32,17 +32,17 @@ export function todos(state = [], { type, payload }) {
 
 ## Action Creators
 
-Action creators at their basic form are just functions that return an object. Given this flexibility you are able to create them in a number of different ways. We do not have any strict conventions regarding action creators. Instead, we recommend that you keep them small and focused.
+Action creators at their basic form are just functions that return an object. Given this flexibility you are able to create them in a number of different ways. We recommend that you keep them small and focused and inlined with the [Flux Standard Action](https://github.com/acdlite/flux-standard-action) structure.
 
 Be careful when adding in middleware libraries as they each add a layer of complexity and abstraction to your code. Action creators should always be small and explicit, so they are predictable and easily testable.
 
 #### Asynchronous Actions
 
-For asynchronous actions, utilize [redux-thunk](https://github.com/gaearon/redux-thunk) or [redux-promise](https://github.com/acdlite/redux-promise). If your action requires an HTTP request, use [redux-requests](https://github.com/idolize/redux-requests) or something similar, so you are not dispatching multiple HTTP calls and state updates.
+At Black Pixel, we keep things extremely simple by using [redux-thunk](https://github.com/gaearon/redux-thunk) for our asynchronous actions. `Redux-thunk` simply returns a function instead of an object inside of your action creators. With `redux-thunk` you can control when an action is dispatched based on certain criteria (since we’re just calling an inner function) and it does not require ramp up time for new developers. If your action requires an HTTP request, use [redux-requests](https://github.com/idolize/redux-requests) or similar. This ensures you are not dispatching multiple HTTP calls and state updates when calling action creators.
 
 #### Dispatching Multiple Actions
 
-If you need to dispatch multiple actions at once, please use [redux-batched-actions](https://github.com/tshelburne/redux-batched-actions).
+If you need to dispatch multiple actions at once, use [redux-batched-actions](https://github.com/tshelburne/redux-batched-actions).
 
 ## Action Type Naming Convention
 

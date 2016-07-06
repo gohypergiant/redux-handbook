@@ -20,6 +20,8 @@ The structure of your folders should be an exact one-to-one representation of yo
 
 ![Our previous layout example from above modified to follow our new pattern](images/folder-layout-good.png)
 
+With this pattern you can infinitely nest your state tree while maintaining a clear idea as to where the appropriate files you need to work on are located. It also makes sense to colocate your reducer, actions, and selectors near each other to advocate the use of isolated state sections and decoupled data.
+
 If there are any utility methods that need to be added to selectors, reducers, or actions, you now have the flexibility to put them in a features folder (if it's an isolated method) or in a `utils.js` file in the root of your state folder, if the method is used in various places.
 
 ## Nested State Tree
@@ -44,7 +46,7 @@ In your parent reducers, you can utilize Redux's `combineReducers` method to gro
 
 ## Action Type Definitions
 
-All action type definitions should live inside a `action-types.js` file in the root of your state folder. This keeps all of our actions contained and allows us to add and update new ones with relative ease.
+All action type definitions should live inside a `action-types.js` file in the root of your `state` folder. This keeps all of our actions contained and allows us to add and update new ones with relative ease.
 
 ```javascript
 export const PROJECT_ADD = 'PROJECT_ADD';
@@ -60,7 +62,7 @@ You can read about conventions for actions in the [Actions & Action Creators](ac
 
 ## Store Composer
 
-The main store composer should live inside a `index.js` file in the root of your state folder. The store composer should _only_ do the following things:
+The main store composer should live inside a `index.js` file in the root of your `state` folder. The store composer should _only_ do the following things:
 
 - Combine all reducers
 - Setup middleware
