@@ -1,6 +1,8 @@
 # Black Pixel Redux Handbook
 
-The Black Pixel Redux Handbook book serves as a guideline for structuring scalable Redux applications. It encourages conventions and best practices we've adopted at Black Pixel that you can use and adapt to suit the needs of your project or team. In it we cover using Redux with React effectively, the importance of immutable data, tips for creating uniform actions, and more. 
+![Black Pixel Redux Handbook](https://pbs.twimg.com/media/CmtFkd_VUAAsHma.jpg)
+
+The Black Pixel Redux Handbook book serves as a guideline for structuring scalable Redux applications. It encourages conventions and best practices we've adopted at Black Pixel that you can use and adapt to suit the needs of your project or team. In it we cover using Redux with React effectively, the importance of immutable data, tips for creating uniform actions, and more.
 
 The handbook assumes a basic understanding of Redux, but includes links for beginners as well.
 
