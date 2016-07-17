@@ -1,0 +1,46 @@
+body {
+  font-size: 16px;
+}
+
+.book-summary {
+  font-size: 14px;
+}
+
+.book-summary ul.summary li.active > a {
+  background-color: #333;
+  color: #fff;
+}
+
+a.plugin-anchor {
+  color: #3e8ddd !important;
+  height: 4rem;
+  line-height: 1;
+  margin-left: 0;
+  padding-left: 0;
+  text-align: center;
+  left: -4rem;
+  width: 4rem;
+}
+
+a.plugin-anchor i {
+  height: 4rem;
+  margin-left: 0;
+  line-height: 4rem;
+  width: 4rem;
+}
+
+.sidebar-addition {
+  height: auto;
+}
+
+.sidebar-addition a {
+  display: block;
+  padding: 4rem;
+}
+
+.sidebar-addition img {
+  max-width: 100%;
+  height: auto;
+  float: none;
+  margin: 0;
+}

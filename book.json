@@ -2,10 +2,24 @@
   "gitbook": "3.2.0-pre.1",
   "title": "Black Pixel Redux Handbook",
   "root": "./src",
-  "plugins": ["prism", "image-captions", "anchors", "-highlight"],
+  "plugins": [
+    "prism",
+    "image-captions",
+    "anchors",
+    "sidebar-ad",
+    "-highlight",
+    "-fontsettings"
+  ],
   "pluginsConfig": {
     "image-captions": {
       "caption": "_CAPTION_"
+    },
+    "sidebar-ad": {
+      "imageUrl": "https://blackpixel.com/assets/images/bpxl-logo-vertical.svg",
+      "url": "https://blackpixel.com"
     }
+  },
+  "styles": {
+    "website": "bpxl-theme.css"
   }
 }
