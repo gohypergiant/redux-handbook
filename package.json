@@ -16,6 +16,7 @@
   "author": "Black Pixel",
   "license": "MIT",
   "dependencies": {
+    "gitbook-plugin-ga": "^1.0.1",
     "gitbook-plugin-prism": "^1.0.0",
     "gitbook-plugin-sidebar-ad": "0.0.4"
   }

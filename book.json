@@ -3,6 +3,7 @@
   "title": "Black Pixel Redux Handbook",
   "root": "./src",
   "plugins": [
+    "ga",
     "prism",
     "image-captions",
     "anchors",
@@ -11,6 +12,9 @@
     "-fontsettings"
   ],
   "pluginsConfig": {
+    "ga": {
+      "token": "UA-26426132-7"
+    },
     "image-captions": {
       "caption": "_CAPTION_"
     },
