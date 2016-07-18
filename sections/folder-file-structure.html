@@ -1,0 +1,341 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Folder & File Structure · Black Pixel Redux Handbook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0-pre.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-ad/sidebar-ad.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../bpxl-theme.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="actions-action-creators.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+  
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="folder-file-structure.html">
+            
+                <a href="folder-file-structure.html">
+            
+                    
+                    Folder & File Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="actions-action-creators.html">
+            
+                <a href="actions-action-creators.html">
+            
+                    
+                    Actions & Action Creators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="reducers-immutable.html">
+            
+                <a href="reducers-immutable.html">
+            
+                    
+                    Reducers & Immutable Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="react-redux.html">
+            
+                <a href="react-redux.html">
+            
+                    
+                    Usage with React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="redux-generators.html">
+            
+                <a href="redux-generators.html">
+            
+                    
+                    Using Redux Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+  <div class="sidebar-addition">
+      
+        <a href="https://blackpixel.com" target="_blank">
+      
+        <img src="https://blackpixel.com/assets/images/bpxl-logo-vertical.svg" />
+      
+        </a>
+      
+      
+      
+  </div>
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Folder & File Structure</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="folder--file-structure"><a name="folder--file-structure" class="plugin-anchor" href="#folder--file-structure"><i class="fa fa-link" aria-hidden="true"></i></a>Folder &amp; File Structure</h1><p>For all of these examples let&apos;s assume this is the current state tree:</p><pre><code class="lang-javascript"><span class="token punctuation">{</span>
+  projects<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  todos<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<hr><p>In most boilerplates and examples, authors lump together reducers, selectors, actions, and container components:</p><figure id="fig1.2.1"><img alt="A common file architecture found in boilerplate and examples" src="images/folder-layout-bad.png"><figcaption>A common file architecture found in boilerplate and examples</figcaption></figure><p>This is reasonable when first starting out with Redux but quickly fails as your project scales. After a while, maintaining your state to props functions inside container components can be cumbersome due to state structure changes or property renames. Also, it can be hard for a new developer coming to a project to get a feel for how components are composed or where / how their data is being created.</p><p>The structure of your folders should be an exact one-to-one representation of your current state tree. This makes it incredibly easy to reason about and visualize your state. It also keeps a nice clean separation of concerns between data sources (more about this later).</p><figure id="fig1.2.2"><img alt="Our previous layout example from above modified to follow our new pattern" src="images/folder-layout-good.png"><figcaption>Our previous layout example from above modified to follow our new pattern</figcaption></figure><p>With this pattern you can infinitely nest your state tree while maintaining a clear idea as to where the appropriate files you need to work on are located. It also makes sense to colocate your reducer, actions, and selectors near each other to advocate the use of isolated state sections and decoupled data.</p><p>If there are any utility methods that need to be added to selectors, reducers, or actions, you now have the flexibility to put them in a features folder (if it&apos;s an isolated method) or in a <code>utils.js</code> file in the root of your state folder, if the method is used in various places.</p><h2 id="nested-state-tree"><a name="nested-state-tree" class="plugin-anchor" href="#nested-state-tree"><i class="fa fa-link" aria-hidden="true"></i></a>Nested State Tree</h2><p>For nested state trees, still follow the rule of matching your folders to your state. For example, if our state changed to this:</p><pre><code class="lang-javascript"><span class="token punctuation">{</span>
+  projects<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  todos<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    active<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    archived<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Your folder structure would look like this:</p><figure id="fig1.2.3"><img alt="An example nested tree architecture" src="images/folder-layout-nested.png"><figcaption>An example nested tree architecture</figcaption></figure><p>In your parent reducers, you can utilize Redux&apos;s <code>combineReducers</code> method to group your child reducers together.</p><h2 id="action-type-definitions"><a name="action-type-definitions" class="plugin-anchor" href="#action-type-definitions"><i class="fa fa-link" aria-hidden="true"></i></a>Action Type Definitions</h2><p>All action type definitions should live inside a <code>action-types.js</code> file in the root of your <code>state</code> folder. This keeps all of our actions contained and allows us to add and update new ones with relative ease.</p><pre><code class="lang-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> PROJECT_ADD <span class="token operator">=</span> <span class="token string">&apos;PROJECT_ADD&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> PROJECT_REMOVE <span class="token operator">=</span> <span class="token string">&apos;PROJECT_REMOVE&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// block sections together via a new line</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> TODO_ADD <span class="token operator">=</span> <span class="token string">&apos;TODO_ADD&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> TODO_REMOVE <span class="token operator">=</span> <span class="token string">&apos;TODO_REMOVE&apos;</span><span class="token punctuation">;</span></code></pre>
+<p>You can read about conventions for actions in the <a href="actions-action-creators.html">Actions &amp; Action Creators</a> chapter.</p><h2 id="store-composer"><a name="store-composer" class="plugin-anchor" href="#store-composer"><i class="fa fa-link" aria-hidden="true"></i></a>Store Composer</h2><p>The main store composer should live inside a <code>index.js</code> file in the root of your <code>state</code> folder. The store composer should <em>only</em> do the following things:</p><ul><li>Combine all reducers
+</li>
+<li>Setup middleware
+</li>
+<li>Create store instance
+</li>
+<li>Export store instance
+</li></ul>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore<span class="token punctuation">,</span> applyMiddleware <span class="token punctuation">}</span> from <span class="token string">&apos;redux&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> thunk from <span class="token string">&apos;redux-thunk&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// reducer import removed for brevity</span>
+<span class="token keyword">const</span> reducers <span class="token operator">=</span> <span class="token function">combineReducers</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>reducers<span class="token punctuation">,</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>thunk<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> store<span class="token punctuation">;</span></code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="actions-action-creators.html" class="navigation navigation-next " aria-label="Next page: Actions & Action Creators">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Folder & File Structure","level":"1.2","depth":1,"next":{"title":"Actions & Action Creators","level":"1.3","depth":1,"path":"sections/actions-action-creators.md","ref":"sections/actions-action-creators.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","prism","image-captions","anchors","sidebar-ad","-highlight","-fontsettings"],"root":"./src","styles":{"website":"bpxl-theme.css"},"pluginsConfig":{"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sidebar-ad":{"imageUrl":"https://blackpixel.com/assets/images/bpxl-logo-vertical.svg","url":"https://blackpixel.com"},"ga":{"configuration":"auto","token":"UA-26426132-7"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"sections/folder-file-structure.html#fig1.2.1","level":"1.2","list_caption":"Figure: A common file architecture found in boilerplate and examples","caption":"A common file architecture found in boilerplate and examples","alt":"A common file architecture found in boilerplate and examples","nro":1,"url":"images/folder-layout-bad.png","index":1,"page_level":"1.2","label":"A common file architecture found in boilerplate and examples","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"sections/folder-file-structure.html#fig1.2.2","level":"1.2","list_caption":"Figure: Our previous layout example from above modified to follow our new pattern","caption":"Our previous layout example from above modified to follow our new pattern","alt":"Our previous layout example from above modified to follow our new pattern","nro":2,"url":"images/folder-layout-good.png","index":2,"page_level":"1.2","label":"Our previous layout example from above modified to follow our new pattern","attributes":{},"skip":false,"key":"1.2.2"},{"backlink":"sections/folder-file-structure.html#fig1.2.3","level":"1.2","list_caption":"Figure: An example nested tree architecture","caption":"An example nested tree architecture","alt":"An example nested tree architecture","nro":3,"url":"images/folder-layout-nested.png","index":3,"page_level":"1.2","label":"An example nested tree architecture","attributes":{},"skip":false,"key":"1.2.3"}]},"title":"Black Pixel Redux Handbook","gitbook":"3.2.0-pre.1"},"file":{"path":"sections/folder-file-structure.md","mtime":"2016-07-07T01:15:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.0-pre.1","time":"2016-07-18T16:36:34.168Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

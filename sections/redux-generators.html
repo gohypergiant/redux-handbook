@@ -1,0 +1,353 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Using Redux Generators · Black Pixel Redux Handbook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0-pre.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sidebar-ad/sidebar-ad.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../bpxl-theme.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="react-redux.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+  
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="folder-file-structure.html">
+            
+                <a href="folder-file-structure.html">
+            
+                    
+                    Folder & File Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="actions-action-creators.html">
+            
+                <a href="actions-action-creators.html">
+            
+                    
+                    Actions & Action Creators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="reducers-immutable.html">
+            
+                <a href="reducers-immutable.html">
+            
+                    
+                    Reducers & Immutable Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="react-redux.html">
+            
+                <a href="react-redux.html">
+            
+                    
+                    Usage with React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="redux-generators.html">
+            
+                <a href="redux-generators.html">
+            
+                    
+                    Using Redux Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+  <div class="sidebar-addition">
+      
+        <a href="https://blackpixel.com" target="_blank">
+      
+        <img src="https://blackpixel.com/assets/images/bpxl-logo-vertical.svg" />
+      
+        </a>
+      
+      
+      
+  </div>
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Using Redux Generators</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="redux-cli"><a name="redux-cli" class="plugin-anchor" href="#redux-cli"><i class="fa fa-link" aria-hidden="true"></i></a>Redux CLI</h1><p><a href="https://github.com/bpxl-labs/redux-generators/" target="_blank">redux-generators</a> is a tool that was created to follow all of the best practices mentioned in this handbook. It has built in commands for creating entire state folders, individual state folder items, and smart container components that use selectors. Refer to the documentation for a more detailed look at what&apos;s possible.</p><h2 id="creating-state-folders"><a name="creating-state-folders" class="plugin-anchor" href="#creating-state-folders"><i class="fa fa-link" aria-hidden="true"></i></a>Creating State Folders</h2><p>Using the <code>$ rg make <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span></code> command you can create entire state tree folders in no time at all. For example, assume our state tree is as follows:</p><pre><code class="lang-javascript"><span class="token punctuation">{</span>
+  todos<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    active<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    complete<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    archived<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>To create this state tree you would simply run the following command:</p><pre><code>$ rg make todos --reducers=active,complete,archived</code></pre>
+<p>This will create a folder named <code>todos</code> with the following files inside of it:</p><ul><li><code>reducer.js</code>
+</li>
+<li><code>actions.js</code>
+</li>
+<li><code>selectors.js</code>
+</li></ul>
+<p>If you notice we passed an additional <code>--reducers</code> flag, this populates our <code>reducer.js</code> with the comma separated list of reducer items to be combined via <code>combineReducers</code>. In the example command above our <code>reducer.js</code> file would look like the following:</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> combineReducers <span class="token punctuation">}</span> from <span class="token string">&apos;redux&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> handleActions <span class="token punctuation">}</span> from <span class="token string">&apos;redux-actions&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  TODO_TEST_ACTION<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> from <span class="token string">&apos;path/to/action-types&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> active <span class="token operator">=</span> <span class="token function">handleActions</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>TODO_TEST_ACTION<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> <span class="token punctuation">{</span> payload <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> payload<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> completed <span class="token operator">=</span> <span class="token function">handleActions</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>TODO_TEST_ACTION<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> <span class="token punctuation">{</span> payload <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> payload<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> archived <span class="token operator">=</span> <span class="token function">handleActions</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>TODO_TEST_ACTION<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> <span class="token punctuation">{</span> payload <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> payload<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">combineReducers</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  active<span class="token punctuation">,</span>
+  completed<span class="token punctuation">,</span>
+  archived<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Notice that action types are automatically added with a namespace via the <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span></code> value (in this case &quot;TODO&quot;). Alternatively, if you would prefer to break up your child reducers even further you could run the following commands:</p><pre><code>$ rg make todos
+$ rg make active --path=todos
+$ rg make completed --path=todos
+$ rg make archived --path=todos</code></pre>
+<p>In the example above we can pass in a <code>--path</code> flag to denote that we want to create that state tree folder inside of the todos folder.</p><p>This tool is absolutely invaluable for saving time when developing an application with <code>redux</code>. It also makes it incredibly easy to follow all of the rules outlined in this handbook. If you have recommendations or ideas please feel free to <a href="https://github.com/bpxl-labs/redux-generators/blob/master/contributing.md" target="_blank">contribute</a> to the project!</p><h2 id="creating-individual-state-files"><a name="creating-individual-state-files" class="plugin-anchor" href="#creating-individual-state-files"><i class="fa fa-link" aria-hidden="true"></i></a>Creating Individual State Files</h2><p><code>redux-generators</code> also gives you the ability to create individual state files:</p><ul><li><code>$ rg make:reducer</code>
+</li>
+<li><code>$ rg make:action</code>
+</li>
+<li><code>$ rg make:selector</code>
+</li>
+<li><code>$ rg make:container <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span></code>
+</li></ul>
+<p>If you need to set custom names for the reducer, action, or selector file you can pass an optional <code>--name</code> flag like so:</p><pre><code>$ rg make:reducer --name=foo-reducer
+// a file named foo-reducer.js will be created</code></pre>
+<p>Creating individual files is useful if you already have an existing state structure in place and want to slowly implement a new one. Please refer to the readme of <a href="https://github.com/bpxl-labs/redux-generators#-rg-make-name-options" target="_blank">redux-generators</a> for more usage examples.</p><h2 id="custom-file-templates"><a name="custom-file-templates" class="plugin-anchor" href="#custom-file-templates"><i class="fa fa-link" aria-hidden="true"></i></a>Custom File Templates</h2><p>If your team has a different way to structure the generated files, <code>redux-generators</code> also gives you the ability to create your own. <a href="https://github.com/bpxl-labs/redux-generators#custom-templates" target="_blank">Refer to the documentation</a> for more information on how to set this up. We recommend only adding in custom templates if they are absolutely needed as the ones that are generated by default follow all of the best practices outlined in this handbook.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="react-redux.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Usage with React">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Using Redux Generators","level":"1.6","depth":1,"previous":{"title":"Usage with React","level":"1.5","depth":1,"path":"sections/react-redux.md","ref":"sections/react-redux.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","prism","image-captions","anchors","sidebar-ad","-highlight","-fontsettings"],"root":"./src","styles":{"website":"bpxl-theme.css"},"pluginsConfig":{"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sidebar-ad":{"imageUrl":"https://blackpixel.com/assets/images/bpxl-logo-vertical.svg","url":"https://blackpixel.com"},"ga":{"configuration":"auto","token":"UA-26426132-7"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"sections/folder-file-structure.html#fig1.2.1","level":"1.2","list_caption":"Figure: A common file architecture found in boilerplate and examples","caption":"A common file architecture found in boilerplate and examples","alt":"A common file architecture found in boilerplate and examples","nro":1,"url":"images/folder-layout-bad.png","index":1,"page_level":"1.2","label":"A common file architecture found in boilerplate and examples","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"sections/folder-file-structure.html#fig1.2.2","level":"1.2","list_caption":"Figure: Our previous layout example from above modified to follow our new pattern","caption":"Our previous layout example from above modified to follow our new pattern","alt":"Our previous layout example from above modified to follow our new pattern","nro":2,"url":"images/folder-layout-good.png","index":2,"page_level":"1.2","label":"Our previous layout example from above modified to follow our new pattern","attributes":{},"skip":false,"key":"1.2.2"},{"backlink":"sections/folder-file-structure.html#fig1.2.3","level":"1.2","list_caption":"Figure: An example nested tree architecture","caption":"An example nested tree architecture","alt":"An example nested tree architecture","nro":3,"url":"images/folder-layout-nested.png","index":3,"page_level":"1.2","label":"An example nested tree architecture","attributes":{},"skip":false,"key":"1.2.3"}]},"title":"Black Pixel Redux Handbook","gitbook":"3.2.0-pre.1"},"file":{"path":"sections/redux-generators.md","mtime":"2016-07-06T00:08:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.0-pre.1","time":"2016-07-18T16:36:34.168Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,325 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Introduction · Black Pixel Redux Handbook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0-pre.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-sidebar-ad/sidebar-ad.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="bpxl-theme.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sections/folder-file-structure.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+  
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="sections/folder-file-structure.html">
+            
+                <a href="sections/folder-file-structure.html">
+            
+                    
+                    Folder & File Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="sections/actions-action-creators.html">
+            
+                <a href="sections/actions-action-creators.html">
+            
+                    
+                    Actions & Action Creators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="sections/reducers-immutable.html">
+            
+                <a href="sections/reducers-immutable.html">
+            
+                    
+                    Reducers & Immutable Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="sections/react-redux.html">
+            
+                <a href="sections/react-redux.html">
+            
+                    
+                    Usage with React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="sections/redux-generators.html">
+            
+                <a href="sections/redux-generators.html">
+            
+                    
+                    Using Redux Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+  <div class="sidebar-addition">
+      
+        <a href="https://blackpixel.com" target="_blank">
+      
+        <img src="https://blackpixel.com/assets/images/bpxl-logo-vertical.svg" />
+      
+        </a>
+      
+      
+      
+  </div>
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="black-pixel-redux-handbook"><a name="black-pixel-redux-handbook" class="plugin-anchor" href="#black-pixel-redux-handbook"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://bpxl-labs.github.io/redux-handbook/" target="_blank">Black Pixel Redux Handbook</a></h1><h3 id="redux-what-is-it"><a name="redux-what-is-it" class="plugin-anchor" href="#redux-what-is-it"><i class="fa fa-link" aria-hidden="true"></i></a>Redux: What Is It?</h3><p><a href="http://redux.js.org/" target="_blank">Redux</a> is a state management library written by Dan Abramov. It is often used in combination with <a href="https://facebook.github.io/react/" target="_blank">React</a> to pull state out from the view layer into a single store. In simple terms, any data that may change ends up living in Redux, which then gets wired up to your React containers to provide the means to <strong>read</strong> from or <strong>write</strong> to your state object.</p><p>When using Redux, your implementation typically focuses on one of three areas:</p><ul><li>Actions, which describe both the type and any relevant data that you use to communicate updates to the store,
+</li>
+<li>Reducers, which is the code that actually performs the update to the store based on the Actions,
+</li>
+<li>Containers, which is the &quot;glue&quot; that binds Redux to your components using <a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.jxumv6uhb" target="_blank">higher order components</a>. Your containers provide the means to interact with Redux by allowing you to wire up state properties or action creators that your components receive as props.
+</li></ul>
+<p>If you are new to Redux, the <a href="http://redux.js.org/index.html" target="_blank">docs</a> are an excellent place to start.</p><h3 id="why-we-use-it"><a name="why-we-use-it" class="plugin-anchor" href="#why-we-use-it"><i class="fa fa-link" aria-hidden="true"></i></a>Why We Use It</h3><p>Redux is an evolution of the <a href="https://facebook.github.io/flux/docs/overview.html" target="_blank">Flux</a> architecture and has similar goals, namely pulling application state out of the view layer and providing the means to interact with it. There are a few key differences between the two, such as:</p><ul><li>Flux often advocates for multiple stores, whereas Redux has a single store and uses &quot;reducer&quot; functions to allow for a separation of concerns.
+</li>
+<li>Flux is an &quot;architecture&quot; with several implementations; Redux is a single library.
+</li>
+<li>Flux allows for either mutable or immutable data (although immutability is often encouraged); Redux mandates immutability.
+</li></ul>
+<p>The combination of these points leads to several advantages with Redux.</p><ul><li>You don&apos;t have to worry about multiple stores and managing any dependencies between them.
+</li>
+<li>Immutability being mandatory means Redux is able to implement <a href="https://facebook.github.io/react/docs/advanced-performance.html" target="_blank">shouldComponentUpdate</a> optimization for free.
+</li>
+<li>The single store and immutable data allows for easy implementation of features such as simpler state hydration, snapshots, or recording/&quot;time travel&quot;.
+</li>
+<li>Redux&apos;s approach allows it to have a smaller, simpler API making it easier to learn and use in practice.
+</li>
+<li>This also allows for easier testing and debugging.
+</li>
+<li>It has become very popular leading to quick adoption and community support through additional modules/middleware.
+</li></ul>
+<h3 id="are-there-downsides-to-using-redux"><a name="are-there-downsides-to-using-redux" class="plugin-anchor" href="#are-there-downsides-to-using-redux"><i class="fa fa-link" aria-hidden="true"></i></a>Are There Downsides to Using Redux?</h3><p>There is an excellent discussion on <a href="https://github.com/reactjs/redux/issues/1385" target="_blank">github</a> about this. An additional thing to consider is that your data should be represented in your state object in a normalized way. This may take more consideration depending on your data model/API design. Dan Abramov has provided another tool called <a href="https://github.com/paularmstrong/normalizr" target="_blank">normalizr</a>, which attempts to address this.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="sections/folder-file-structure.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Folder & File Structure">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Folder & File Structure","level":"1.2","depth":1,"path":"sections/folder-file-structure.md","ref":"sections/folder-file-structure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","prism","image-captions","anchors","sidebar-ad","-highlight","-fontsettings"],"root":"./src","styles":{"website":"bpxl-theme.css"},"pluginsConfig":{"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sidebar-ad":{"imageUrl":"https://blackpixel.com/assets/images/bpxl-logo-vertical.svg","url":"https://blackpixel.com"},"ga":{"configuration":"auto","token":"UA-26426132-7"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"sections/folder-file-structure.html#fig1.2.1","level":"1.2","list_caption":"Figure: A common file architecture found in boilerplate and examples","caption":"A common file architecture found in boilerplate and examples","alt":"A common file architecture found in boilerplate and examples","nro":1,"url":"images/folder-layout-bad.png","index":1,"page_level":"1.2","label":"A common file architecture found in boilerplate and examples","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"sections/folder-file-structure.html#fig1.2.2","level":"1.2","list_caption":"Figure: Our previous layout example from above modified to follow our new pattern","caption":"Our previous layout example from above modified to follow our new pattern","alt":"Our previous layout example from above modified to follow our new pattern","nro":2,"url":"images/folder-layout-good.png","index":2,"page_level":"1.2","label":"Our previous layout example from above modified to follow our new pattern","attributes":{},"skip":false,"key":"1.2.2"},{"backlink":"sections/folder-file-structure.html#fig1.2.3","level":"1.2","list_caption":"Figure: An example nested tree architecture","caption":"An example nested tree architecture","alt":"An example nested tree architecture","nro":3,"url":"images/folder-layout-nested.png","index":3,"page_level":"1.2","label":"An example nested tree architecture","attributes":{},"skip":false,"key":"1.2.3"}]},"title":"Black Pixel Redux Handbook","gitbook":"3.2.0-pre.1"},"file":{"path":"README.md","mtime":"2016-07-07T01:15:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.0-pre.1","time":"2016-07-18T16:36:34.168Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
